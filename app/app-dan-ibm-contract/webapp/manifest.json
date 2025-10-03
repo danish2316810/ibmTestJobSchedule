@@ -1,0 +1,130 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "app.dan.ibm.appdanibmcontract",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.19.0",
+      "toolsId": "e6b06f92-691c-484c-9881-eba0591afae6"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/xref/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "appdanibmcontract-manage": {
+          "semanticObject": "appdanibmcontract",
+          "action": "manage",
+          "title": "{{appdanibmcontract-manage.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.140.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.dan.ibm.appdanibmcontract.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "app.dan.ibm.appdanibmcontract.view",
+        "async": true,
+        "viewPath": "app.dan.ibm.appdanibmcontract.view"
+      },
+      "routes": [
+        {
+          "name": "RoutecontractView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetcontractView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetcontractView": {
+          "id": "contractView",
+          "name": "contractView"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "app.dan.ibm.appdanibmcontract.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

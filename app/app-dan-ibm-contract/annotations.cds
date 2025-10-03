@@ -1,0 +1,1 @@
+using XrefService as service from '../../srv/cds/xref-service';
